@@ -1,37 +1,63 @@
-<main>
-    <div class="card">
-        <section>
-            <p>#1 - Djavan</p>
-        </section>
-        <section>
-            <strong>Descricao</strong>
-            <p>Djavan é um samurai cuja lâmina dança ao ritmo da alma</p>
-            <p>OVR - 70</p>
-        </section>
-    </div>
+<div id="content">
+    <strong class="titulo">Personagens</strong>
+    <main>
+        <div class="card" *ngFor="let personagem of personagens" (click)="viewCard(personagem.id)">        
+            <section>
+                <strong style="font-size: 18px; text-align: center;">#{{personagem.id}} - {{personagem.nome}}</strong>
+            </section>
+            <section>
+                <strong>Descrição</strong>
+                <p>{{personagem.descricao}}</p>
+            </section>
+            <p>Overall - {{ (personagem.ataque + personagem.vida + personagem.defesa + personagem.estamina + personagem.velocidade + personagem.critico) }}</p>
+        </div>
 
-    <div class="card">
-        <section></section>
-        <section></section>
-    </div>
+        <div class="card" style="justify-content: center;">
+            <button>Adicionar personagem</button>
+        </div>
 
-    <div class="card">
-        <section></section>
-        <section></section>
-    </div>
-    
-    <div class="card">
-        <section></section>
-        <section></section>
-    </div>
-    
-    <div class="card">
-        <section></section>
-        <section></section>
-    </div>
+        <div #contentHidden id="contentHidden">
+            
+            <div *ngIf="personagemSelecionado" class="hidden_card">
+                <div>
+                    <button class="voltar" (click)="closeCard()">
+                        <svg width="25" height="25" viewBox="0 0 193 336" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M185.751 7.38662C177.002 -1.36235 162.896 -1.36235 154.148 7.38662L5.77204 155.762C-1.19143 162.726 -1.19143 173.974 5.77204 180.938L154.148 329.313C162.896 338.062 177.002 338.062 185.751 329.313C194.5 320.564 194.5 306.459 185.751 297.71L56.4804 168.261L185.93 38.8115C194.5 30.2411 194.5 15.957 185.751 7.38662Z" fill="currentColor"/>
+                        </svg>
+                    </button>
 
-    <div class="card">
-        <section></section>
-        <section></section>
-    </div>
-</main>
+                    <button class="voltar" (click)="deletePersonagem(personagemSelecionado.id)">
+                        <svg width="25" height="25" viewBox="0 0 251 322" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M196.681 107.695V286.246H53.8404V107.695H196.681ZM169.898 0.565186H80.623L62.7679 18.4202H0.275261V54.1303H250.246V18.4202H187.753L169.898 0.565186ZM232.391 71.9854H18.1303V286.246C18.1303 305.887 34.1999 321.956 53.8404 321.956H196.681C216.321 321.956 232.391 305.887 232.391 286.246V71.9854Z" fill="currentColor"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <header>
+                    <strong class="titulo">#{{personagemSelecionado.id}} - {{personagemSelecionado.nome}}</strong>
+                </header>
+
+                <main>
+                    <div>
+                        <strong>Descrição</strong>
+                        <p>{{personagemSelecionado.descricao}}</p>
+                    </div>
+                    <div>
+                        <section>
+                            <p class="class">Vida - {{personagemSelecionado.vida}}</p>
+                            <p class="class">Ataque - {{personagemSelecionado.ataque}}</p>
+                            <p class="class">Defesa - {{personagemSelecionado.defesa}}</p>
+                        </section>
+                        <section>
+                            <p class="class">Estamina - {{personagemSelecionado.estamina}}</p>
+                            <p class="class">Velocidade - {{personagemSelecionado.velocidade}}</p>
+                            <p class="class">Crítico - {{personagemSelecionado.critico}}</p>
+                        </section>
+                    </div>
+                </main>
+
+            </div>
+
+        </div>
+    </main>
+</div>

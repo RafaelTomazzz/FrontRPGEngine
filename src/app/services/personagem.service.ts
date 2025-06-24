@@ -23,4 +23,12 @@ export class PersonagemService {
     return this.httpClient.get<Personagem[]>(this.apiUrl + 'list')
   }
 
+  public getByIdPersonagem(id: number): Observable<Personagem>{
+    return this.httpClient.get<Personagem>(this.apiUrl + 'getbyid/' + id)
+  }
+
+  public deleteByIdPersonagem(id: number): Observable<Personagem>{
+    return this.httpClient.delete<Personagem>(this.apiUrl + id)
+  }
+
 }
