@@ -34,7 +34,18 @@ main{
 
 button{
     width: 100%;
-    height: 30px;
+    height: 40px;
+    font-size: 13px;
+    background-color: rgb(80, 80, 250);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: rgb(47, 47, 255);
+    transition: ease-in-out 500ms;
 }
 
 #content{
@@ -44,7 +55,7 @@ button{
     margin-top: 30px;
 }
 
-#contentHidden{
+.contentHidden{
     display: none;
     position: absolute;
     right: 0px;
@@ -121,4 +132,40 @@ button{
 .hidden_card main div section{
     all: unset;
     width: 150px;
+}
+
+.content_form{
+    width: 300px;
+}
+
+.content_input{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    width: 300px;
+    height: 30px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #d3d3d3;
+    word-wrap: break-word;
+    color: black;
+    font-size: 15px;
+}
+
+input[type= "number"]{
+    width: 80px;
+
+}
+
+label{
+    font-size: 15px;
+}
+
+.background-none:hover{
+    background-color: none;
 }

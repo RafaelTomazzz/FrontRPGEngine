@@ -51,4 +51,14 @@ export class HomeComponent implements OnInit{
       window.location.reload()
     })
   }
+
+  @ViewChild("addcontentHidden") addcontent!: ElementRef
+
+  viewAddCard(){
+    this.addcontent.nativeElement.style.display = 'block'
+  }
+
+  closeAddCard(){
+    this.addcontent.nativeElement.style.display = 'none'
+  }
 } 
