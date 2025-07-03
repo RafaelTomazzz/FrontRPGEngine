@@ -94,6 +94,8 @@ button:hover{
 }
 
 .voltar:hover{
+    all: unset;
+    padding: 2px;
     color: rgb(199, 199, 199);
     transition: ease-in-out 100ms;
 }

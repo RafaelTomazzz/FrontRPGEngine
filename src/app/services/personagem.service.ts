@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Personagem } from '../models/personagem'
+import { personagemForm } from '../models/personagemForm';
 
 
 @Injectable({
@@ -29,6 +30,10 @@ export class PersonagemService {
 
   public deleteByIdPersonagem(id: number): Observable<Personagem>{
     return this.httpClient.delete<Personagem>(this.apiUrl + id)
+  }
+
+  public postPersonagem(personagem: personagemForm): Observable<Personagem>{
+    return this.httpClient.post<Personagem>(this.apiUrl, personagem)
   }
 
 }
