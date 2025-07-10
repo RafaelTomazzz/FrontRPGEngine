@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild, ChangeDetectorRef} from '@angular/core';
+import { FormGroup, FormControl, Validator } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Personagem } from '../../models/personagem';
 import { PersonagemService } from '../../services/personagem.service';

@@ -7,5 +7,6 @@ export interface Personagem{
     defesa: number,
     estamina: number,
     velocidade: number,
-    critico: number
+    critico: number,
+    classe: String
 }
