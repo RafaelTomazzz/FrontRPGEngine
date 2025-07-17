@@ -71,7 +71,7 @@
                 </div>
 
                 <main class="content_form" style="justify-content: space-between;">
-                    <form >
+                    <form [formGroup] = "addPersForm">
                         <section class="content_input">
                             <label for="nome">Nome</label>
                             <input type="text" name="nome" formControlName="nome">
@@ -81,6 +81,14 @@
                             <label for="descricao">Descrição</label>
                             <input type="text" name="descricao" style="height: 60px;" formControlName="descricao">
                         </section>
+
+                        <select name="classe" id="" formControlName="classe">
+                            <option value="Mago">Mago</option>
+                            <option value="Guerreiro">Guerreiro</option>
+                            <option value="Arquewiro">Arquewiro</option>
+                            <option value="Assassino">Assassino</option>
+                            <option value="Samurai">Samurai</option>
+                        </select>
                         
                         <div>
                             <section class="content_input">

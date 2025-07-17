@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, ChangeDetectorRef} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ChangeDetectorRef, Renderer2} from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Personagem } from '../../models/personagem';
@@ -15,7 +15,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class HomeComponent implements OnInit{
   personagens!: Personagem[]
 
-  constructor(public personagemService: PersonagemService, private changeDetector: ChangeDetectorRef, private httpClient: HttpClient) {}
+  constructor(public personagemService: PersonagemService, private changeDetector: ChangeDetectorRef, private httpClient: HttpClient, private renderer: Renderer2) {}
 
   ngOnInit(): void {
     this.getAllPersonagem()
@@ -38,6 +38,8 @@ export class HomeComponent implements OnInit{
       this.content.nativeElement.style.display = 'block'
       console.log(this.personagemSelecionado)
     })
+
+    this.renderer.addClass(document.body, "no-scroll")
     
   }
 
@@ -73,7 +75,8 @@ export class HomeComponent implements OnInit{
       defesa: new FormControl(0, Validators.required),
       estamina: new FormControl(0, Validators.required),
       velocidade: new FormControl(0, Validators.required),
-      critico: new FormControl(0, Validators.required)
+      critico: new FormControl(0, Validators.required),
+      classe: new FormControl('Guerreiro', Validators.required)
   })
 
   apiUrl = 'http://localhost:3000/personagem/'
